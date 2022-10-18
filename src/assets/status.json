@@ -1,0 +1,30 @@
+[
+    {
+        "Id":1,
+        "DetalheStatus":"Recebido"
+    },
+    {
+        "Id":2,
+        "DetalheStatus":"Em Analise"
+    },
+    {
+        "Id":3,
+        "DetalheStatus":"Recusado"
+    },
+    {
+        "Id":4,
+        "DetalheStatus":"Aceito"
+    },
+    {
+        "Id":5,
+        "DetalheStatus":"Em Avaliação"
+    },
+    {
+        "Id":6,
+        "DetalheStatus":"Aprovado"
+    },
+    {
+        "Id":7,
+        "DetalheStatus":"Reprovado"
+    }
+]

@@ -1,0 +1,57 @@
+[
+    {
+      "id": 3,
+      "nome": "Ari",
+      "sobreNome": "Morato",
+      "cpf": "09360684856",
+      "cargo": "Desenvolvedor Fullstack",
+      "remuneracao": 12500.5,
+      "status": 2,
+      "dataEnvio": "2022-10-14T14:50:47.735",
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "nome": "Maria",
+      "sobreNome": "Da Conceição",
+      "cpf": "32731024038",
+      "cargo": "Gerente de Projetos",
+      "remuneracao": 9800.25,
+      "status": 4,
+      "dataEnvio": "2022-10-14T14:47:31.719",
+      "ativo": true
+    },
+    {
+      "id": 6,
+      "nome": "Jaqueline",
+      "sobreNome": "Alvarenga",
+      "cpf": "47505706055",
+      "cargo": "Analista de Sistemas",
+      "remuneracao": 7845.85,
+      "status": 3,
+      "dataEnvio": "2022-10-14T18:14:47.705",
+      "ativo": false
+    },
+    {
+      "id": 7,
+      "nome": "Manuel",
+      "sobreNome": "Oliveira Torres",
+      "cpf": "97505732055",
+      "cargo": "Programador Jr.",
+      "remuneracao": 5789.32,
+      "status": 5,
+      "dataEnvio": "2022-10-14T18:18:18.386",
+      "ativo": true
+    },
+    {
+      "id": 8,
+      "nome": "Antonieta",
+      "sobreNome": "Severo Medeiros",
+      "cpf": "27855765423",
+      "cargo": "Gerente de Contas",
+      "remuneracao": 15875.32,
+      "status": 7,
+      "dataEnvio": "2022-10-14T18:26:34.041",
+      "ativo": true
+    }
+  ]  
