@@ -6,18 +6,23 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { CurriculosRoutingModule } from './curriculos-routing.module';
 import { CurriculosComponent } from './curriculos/curriculos.component';
+import { CurriculoFormComponent } from './curriculo-form/curriculo-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
 @NgModule({
   declarations: [
-    CurriculosComponent
+    CurriculosComponent,
+    CurriculoFormComponent
   ],
   imports: [
     CommonModule,
     CurriculosRoutingModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
     
 
    

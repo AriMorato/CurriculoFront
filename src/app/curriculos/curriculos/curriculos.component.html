@@ -2,7 +2,7 @@
   <mat-toolbar> Curriculos Recebidos </mat-toolbar>
   <div *ngIf="curriculos$ | async as curriculos; else loading">
     <table mat-table [dataSource]="curriculos" class="mat-elevation-z8">
-      <!-- Position Column -->
+      <!-- ID Column -->
       <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef>id</th>
         <td mat-cell *matCellDef="let item">{{ item.id }}</td>
@@ -22,7 +22,7 @@
         <td mat-cell *matCellDef="let item">{{ item.cpf }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
+      <!-- Data de Envio Column -->
       <ng-container matColumnDef="DataEnvio">
         <th mat-header-cell *matHeaderCellDef>Data de Envio</th>
         <td mat-cell *matCellDef="let item">
@@ -30,12 +30,42 @@
         </td>
       </ng-container>
 
-       <!-- CPF Column -->
+       <!-- Status Column -->
        <ng-container matColumnDef="Status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let item">{{item.status|status}}
-          <mat-icon aria-hidden="false" aria-label="Status Currículo">{{item.status|statusIco}}</mat-icon>
+       <!--  <td mat-cell *matCellDef="let item">{{item.status|status}}
+          <mat-icon aria-hidden="false" aria-label="Status Currículo">{{item.status|statusIco}}</mat-icon> 
+        </td> -->
+
+        <td mat-cell *matCellDef="let item"><mat-icon aria-hidden="false" aria-label="Status Currículo">{{item.status|statusIco}}</mat-icon>
+          {{item.status|status}}
+          
         </td>
+       
+      </ng-container>
+
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+       <mat-header-cell *matHeaderCellDef>
+        <div class="example-button-container">
+          <button mat-mini-fab color="accent" aria-label="Adiconar um Curso">
+            <mat-icon (click)="onAdd()">add</mat-icon>
+          </button>
+        </div>
+       </mat-header-cell>
+
+       <mat-cell *matCellDef="let curriculo">
+        <button mat-icon-button color="primary" aria-label="Edutar um Curso">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" aria-label="Edutar um Curso">
+          <mat-icon>delete</mat-icon>
+        </button>
+       </mat-cell>
+
+
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

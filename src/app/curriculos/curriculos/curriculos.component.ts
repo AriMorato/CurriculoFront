@@ -6,6 +6,7 @@ import { Curriculo } from '../model/curriculo';
 import { Status } from '../model/Status';
 import { CurriculosService } from '../servicos/curriculos.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -25,12 +26,15 @@ export class CurriculosComponent implements OnInit {
     'Nome',
     'Cpf',
     'DataEnvio',
-    'Status'
+    'Status',
+    'actions'
   ]
 
   constructor(
     private restApi:CurriculosService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router:Router,
+    private route:ActivatedRoute
     ){
 
     this.curriculos$ = restApi.lstCurriculos()
@@ -52,6 +56,10 @@ export class CurriculosComponent implements OnInit {
 
   ngOnInit() {
   //this.exibeCurriculos; 
+  }
+
+  onAdd(){
+    this.router.navigate(['novoCurriculo'], {relativeTo:this.route})
   }
 
   onError(errorMsg:string) {
