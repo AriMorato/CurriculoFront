@@ -39,7 +39,7 @@ export class CurriculosService {
     )
   }
 
-  save(data:Curriculo){
+  save(data:Partial<Curriculo>){
     data.ativo = true;
     data.dataEnvio = new Date();
     return this.http.post<Curriculo>(this.apiURL + "/Curriculo", data)
