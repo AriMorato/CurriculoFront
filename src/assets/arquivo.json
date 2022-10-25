@@ -7,7 +7,7 @@
       "cargo": "Desenvolvedor Fullstack",
       "remuneracao": 12500.5,
       "status": 2,
-      "dataEnvio": "2022-10-14T14:50:47.735",
+      "dataEnvio": "14/10/2022",
       "ativo": true
     },
     {
@@ -18,7 +18,7 @@
       "cargo": "Gerente de Projetos",
       "remuneracao": 9800.25,
       "status": 4,
-      "dataEnvio": "2022-10-14T14:47:31.719",
+      "dataEnvio": "14/10/2022",
       "ativo": true
     },
     {
@@ -29,7 +29,7 @@
       "cargo": "Analista de Sistemas",
       "remuneracao": 7845.85,
       "status": 3,
-      "dataEnvio": "2022-10-14T18:14:47.705",
+      "dataEnvio": "14/10/2022",
       "ativo": false
     },
     {
@@ -40,7 +40,7 @@
       "cargo": "Programador Jr.",
       "remuneracao": 5789.32,
       "status": 5,
-      "dataEnvio": "2022-10-14T18:18:18.386",
+      "dataEnvio": "14/10/2022",
       "ativo": true
     },
     {
@@ -51,7 +51,7 @@
       "cargo": "Gerente de Contas",
       "remuneracao": 15875.32,
       "status": 7,
-      "dataEnvio": "2022-10-14T18:26:34.041",
+      "dataEnvio": "14/10/2022",
       "ativo": true
     }
   ]  

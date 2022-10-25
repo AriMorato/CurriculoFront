@@ -1,13 +1,25 @@
-
 mat-card{
-    max-width: 30%;
-    margin:2em auto;
+    margin:2em;
+    margin:auto;
+    max-width: 40%;
+    
 }
 
 .full-width{
-    width: 100%;
+    justify-self:left;
+    align-self:left;
+    width: 45%;
+    padding-left: 10px;
 }
-form{
-    display: flex;
-    flex-direction: column;
+
+.partial-width{
+    width: 45%;
+    padding-left: 10px;
 }
+
+.buttonsForm{
+    text-align: center;
+}
+
+
+

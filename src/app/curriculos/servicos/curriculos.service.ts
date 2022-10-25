@@ -12,14 +12,16 @@ import { Status } from '../model/Status';
 })
 export class CurriculosService {
 
-  private readonly apiURL = '/assets/arquivo.json'
-  private readonly apiStatusURL = '/assets/status.json'
-  //private readonly apiURL = 'http://localhost:5036/api'
-  constructor(private http:HttpClient) { }
+  //private readonly apiURL = '/assets/arquivo.json'
+  //private readonly apiStatusURL = '/assets/status.json'
+  private readonly apiURL = 'http://localhost:5036/api'
+  constructor(private http:HttpClient) { 
+    
+  }
   
   lstCurriculos(){
     //return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
-    return this.http.get<Curriculo[]>(this.apiURL)
+    return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
     .pipe(
       first(),
       //delay(10000),
@@ -29,11 +31,20 @@ export class CurriculosService {
 
   lstStatus(){
     //return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
-    return this.http.get<Status[]>(this.apiStatusURL)
+    return this.http.get<any[]>(this.apiURL + "/StatusCurriculo")
     .pipe(
       first(),
       //delay(10000),
       tap( status=>console.log(status))
+    )
+  }
+
+  save(data:Curriculo){
+    data.ativo = true;
+    data.dataEnvio = new Date();
+    return this.http.post<Curriculo>(this.apiURL + "/Curriculo", data)
+    .pipe(
+      first()
     )
   }
 

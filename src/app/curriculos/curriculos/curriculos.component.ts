@@ -9,18 +9,16 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 import { ActivatedRoute, Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-curriculos',
   templateUrl: './curriculos.component.html',
   styleUrls: ['./curriculos.component.scss']
 })
 export class CurriculosComponent implements OnInit {
-
-
-  //public lstCurriculos$!:Observable<Curriculo[]>;
-  
-  curriculos$:Observable<Curriculo[]>;
-  status$:Observable<Status[]>
+ 
+  lstCurriculos$:Observable<any[]>;
+  lstStatus$:Observable<any[]>
   displayedColumns = [
     'Id',
     'Nome',
@@ -36,27 +34,24 @@ export class CurriculosComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute
     ){
+      this.lstCurriculos$ = this.restApi.lstCurriculos()
+      .pipe(
+        catchError(error=>{
+          this.onError('Erro ao carregar Lista de Currículos')
+          return of([])
+        })
+      )
 
-    this.curriculos$ = restApi.lstCurriculos()
-    .pipe(
-      catchError(error=>{
-        this.onError('Erro ao carregar Lista de Currículos')
-        return of([])
-      })
-    )
+      this.lstStatus$= this.restApi.lstStatus()
+      .pipe(
+        catchError(error=>{
+          this.onError('Erro ao carregar Lista de Status')
+          return of([])
+        })
+      )
+    }
 
-    this.status$= restApi.lstStatus()
-    .pipe(
-      catchError(error=>{
-        this.onError('Erro ao carregar Lista de Status')
-        return of([])
-      })
-    )
-  }
-
-  ngOnInit() {
-  //this.exibeCurriculos; 
-  }
+  ngOnInit() {}
 
   onAdd(){
     this.router.navigate(['novoCurriculo'], {relativeTo:this.route})

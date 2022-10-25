@@ -6,6 +6,6 @@ export interface Curriculo {
     cargo:string,
     remuneracao:number,
     status:number,
-    dataEnvio:string,
+    dataEnvio:Date,
     ativo:boolean
 }
