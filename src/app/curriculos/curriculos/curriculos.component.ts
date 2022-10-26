@@ -18,15 +18,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CurriculosComponent implements OnInit {
  
   lstCurriculos$:Observable<any[]>;
+
   lstStatus$:Observable<any[]>
-  displayedColumns = [
-    'Id',
-    'Nome',
-    'Cpf',
-    'DataEnvio',
-    'Status',
-    'actions'
-  ]
+
+  
 
   constructor(
     private restApi:CurriculosService,

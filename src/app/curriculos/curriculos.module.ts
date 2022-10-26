@@ -8,12 +8,14 @@ import { SharedModule } from '../shared/shared.module';
 import { CurriculoFormComponent } from './curriculo-form/curriculo-form.component';
 import { CurriculosRoutingModule } from './curriculos-routing.module';
 import { CurriculosComponent } from './curriculos/curriculos.component';
+import { CurriculosListComponent } from './curriculos-list/curriculos-list.component';
 
 
 @NgModule({
   declarations: [
     CurriculosComponent,
-    CurriculoFormComponent
+    CurriculoFormComponent,
+    CurriculosListComponent
   ],
   imports: [
     CommonModule,

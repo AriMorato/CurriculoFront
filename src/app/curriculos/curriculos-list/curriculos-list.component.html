@@ -1,0 +1,63 @@
+<mat-table  [dataSource]="lstCurriculos">
+    <!-- Position Id -->
+    <ng-container matColumnDef="Id">
+      <mat-header-cell  *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell  *matCellDef="let item">{{ item.id }}</mat-cell>
+    </ng-container>
+
+    <!-- Nome Column -->
+    <ng-container matColumnDef="Nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell  *matCellDef="let item">{{ item.nome }}</mat-cell>
+    </ng-container>
+
+    <!-- Nome Cpf -->
+    <ng-container matColumnDef="Cpf">
+      <mat-header-cell  *matHeaderCellDef>Cpf</mat-header-cell>
+      <mat-cell  *matCellDef="let item">{{ item.cpf }}</mat-cell>
+    </ng-container>
+
+    <!--  DataEnvio -->
+    <ng-container matColumnDef="DataEnvio">
+      <mat-header-cell  *matHeaderCellDef>Data Envio</mat-header-cell>
+      <mat-cell  *matCellDef="let item">{{ item.dataEnvio | date : 'dd/MM/yyyy'}}</mat-cell>
+    </ng-container>
+
+    <!--  DataEnvio -->
+    <ng-container matColumnDef="dataEnvio">
+      <mat-header-cell  *matHeaderCellDef>DataEnvio</mat-header-cell>
+      <mat-cell  *matCellDef="let item">
+        {{ item.dataEnvio | date: 'dd/MM/yyyy' }}
+      </mat-cell>
+    </ng-container>
+
+    <!--  Status -->
+    <ng-container matColumnDef="Status">
+      <mat-header-cell  *matHeaderCellDef>Status</mat-header-cell>
+      <mat-cell  *matCellDef="let item">{{ item.status | status }}
+        <mat-icon aria-hidden="false" aria-label="Status do currículo" color="accent">{{ item.status | statusIco }}</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef="" class="action-colun">
+        <button mat-mini-fab color="accent" aria-label="Adionar Currículo">
+          <mat-icon (click)= "onAdd()">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let item" class="action-colun">
+        <button mat-icon-button color="accent" aria-label="Editar Currículo">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" aria-label="Deletar Currículo">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
