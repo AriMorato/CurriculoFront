@@ -2,10 +2,11 @@
   <mat-toolbar color="accent">Lista de Curiculos</mat-toolbar>
 <div class="mat-elevation-z8 cloumn-flex" >
   <app-curriculos-list
-  
+
     *ngIf="lstCurriculos$ | async as lstCurriculos; else loading"
     [lstCurriculos]="lstCurriculos"
     (add)="onAdd()"
+    (edit)="onEdit($event)"
   ></app-curriculos-list>
 
 

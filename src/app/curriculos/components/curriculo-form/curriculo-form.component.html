@@ -32,7 +32,7 @@
 
           <mat-form-field class="full-width">
             <mat-label>Status</mat-label>
-            <mat-select formControlName="status">
+            <mat-select formControlName="status" >
               <mat-option *ngFor="let item of lstStatus$ | async" value={{item.id}}>{{item.detalheStatus}}</mat-option>
             </mat-select>
           </mat-form-field>

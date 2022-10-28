@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { catchError, Observable, of } from 'rxjs';
 
-import { Curriculo } from '../model/curriculo';
-import { Status } from '../model/Status';
-import { CurriculosService } from '../servicos/curriculos.service';
+import { Curriculo } from '../../model/curriculo';
+import { Status } from '../../model/Status';
+import { CurriculosService } from '../../servicos/curriculos.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,12 +16,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./curriculos.component.scss']
 })
 export class CurriculosComponent implements OnInit {
- 
-  lstCurriculos$:Observable<any[]>;
 
-  lstStatus$:Observable<any[]>
+  lstCurriculos$:Observable<Curriculo[]>;
 
-  
+  lstStatus$:Observable<Status[]>
+
 
   constructor(
     private restApi:CurriculosService,
@@ -50,6 +49,11 @@ export class CurriculosComponent implements OnInit {
 
   onAdd(){
     this.router.navigate(['novoCurriculo'], {relativeTo:this.route})
+  }
+
+  onEdit(curriculo:Curriculo){
+    this.router.navigate(['editCurriculo', curriculo.id], {relativeTo:this.route})
+
   }
 
   onError(errorMsg:string) {

@@ -15,10 +15,10 @@ export class CurriculosService {
   //private readonly apiURL = '/assets/arquivo.json'
   //private readonly apiStatusURL = '/assets/status.json'
   private readonly apiURL = 'http://localhost:5036/api'
-  constructor(private http:HttpClient) { 
-    
+  constructor(private http:HttpClient) {
+
   }
-  
+
   lstCurriculos(){
     //return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
     return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
@@ -31,7 +31,7 @@ export class CurriculosService {
 
   lstStatus(){
     //return this.http.get<Curriculo[]>(this.apiURL + '/Curriculo')
-    return this.http.get<any[]>(this.apiURL + "/StatusCurriculo")
+    return this.http.get<Status[]>(this.apiURL + "/StatusCurriculo")
     .pipe(
       first(),
       //delay(10000),
@@ -42,10 +42,25 @@ export class CurriculosService {
   save(data:Partial<Curriculo>){
     data.ativo = true;
     data.dataEnvio = new Date();
-    return this.http.post<Curriculo>(this.apiURL + "/Curriculo", data)
-    .pipe(
-      first()
-    )
+    
+   if(data.id){
+    return this.update(data)
+   }
+   return this.create(data)
+  }
+
+
+  private create(data:Partial<Curriculo>){
+
+    return this.http.post<Curriculo>(this.apiURL + "/Curriculo", data).pipe(first());
+  }
+
+  private update(data:Partial<Curriculo>){
+    return this.http.put<Curriculo>(this.apiURL + '/Curriculo/'+ data.id, data).pipe(first());
+  }
+
+  loadByEdit(id:Number){
+    return this.http.get<Curriculo>(this.apiURL + '/Curriculo/'+id)
   }
 
 }
@@ -54,4 +69,4 @@ export class CurriculosService {
 
   /* ***************************************Tabela Currículo******************************************** */
 
- 
+

@@ -48,7 +48,7 @@
 
       <mat-cell *matCellDef="let item" class="action-colun">
         <button mat-icon-button color="accent" aria-label="Editar Currículo">
-          <mat-icon>edit</mat-icon>
+          <mat-icon (click)= "onEdit(item)">edit</mat-icon>
         </button>
 
         <button mat-icon-button color="warn" aria-label="Deletar Currículo">
