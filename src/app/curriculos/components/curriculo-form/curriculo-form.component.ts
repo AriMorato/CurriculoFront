@@ -24,7 +24,6 @@ export class CurriculoFormComponent implements OnInit {
   lstStatus$:Observable<any[]>;
 
   form = this.frmBuilder.group({
-    id:0,
     nome:[''],
     sobreNome:[''],
     cpf:[''],
@@ -53,8 +52,8 @@ export class CurriculoFormComponent implements OnInit {
 
   ngOnInit(): void {
     const curriculo:Curriculo = this.route.snapshot.data['curriculo']
-    this.form.setValue({
-      id:curriculo.id,
+    console.log(curriculo)
+    this.form.patchValue({
       nome:curriculo.nome,
       sobreNome: curriculo.sobreNome,
       cpf:curriculo.cpf,
@@ -62,12 +61,14 @@ export class CurriculoFormComponent implements OnInit {
       remuneracao:curriculo.remuneracao,
       status:curriculo.status
     })
+    this.form.controls.status
+
+
   }
   onSubmit(){
-   this.restApi.save(this.form.value)
-
-   .subscribe(data=>  this.onSuccess()
+     this.restApi.save(this.form.value).subscribe(data=>this.onSuccess()
    ,error=>this.onError("Erro ao salvar curriculo."))
+   //console.log(this.form.value)
   }
 
   onSuccess(){

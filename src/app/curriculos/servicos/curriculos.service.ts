@@ -40,9 +40,11 @@ export class CurriculosService {
   }
 
   save(data:Partial<Curriculo>){
+
+    console.log(data)
     data.ativo = true;
-    data.dataEnvio = new Date();
-    
+    data.dataEnvio = new Date(); //new Date('dd/MM/yyyy');
+
    if(data.id){
     return this.update(data)
    }
@@ -51,12 +53,11 @@ export class CurriculosService {
 
 
   private create(data:Partial<Curriculo>){
-
     return this.http.post<Curriculo>(this.apiURL + "/Curriculo", data).pipe(first());
   }
 
   private update(data:Partial<Curriculo>){
-    return this.http.put<Curriculo>(this.apiURL + '/Curriculo/'+ data.id, data).pipe(first());
+    return this.http.put<Curriculo>(this.apiURL + '/Curriculo'+ data.id, data).pipe(first());
   }
 
   loadByEdit(id:Number){
